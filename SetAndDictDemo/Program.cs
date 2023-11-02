@@ -50,7 +50,8 @@ namespace SetAndDictDemo
 
             Dictionary<string, List<Person>> namedListDict = new Dictionary<string, List<Person>>()
             {
-                ["mysorted"] = new List<Person> { person1, person2 }
+                ["mysorted"] = new List<Person> { person1, person2 },
+                ["another"] = list
             };
             foreach (List<Person> personList in namedListDict.Values)
             {
@@ -60,12 +61,17 @@ namespace SetAndDictDemo
                 }
             }
 
+            Dictionary<string, Person> simpsons = new Dictionary<string, Person>()
+            {
+                ["Homer"] = new Person { Id = 1, Name = "Homer Simpson" }
+            };
+            simpsons.Add("Marge", new Person { Id = 2, Name = "Marge Simpson" });
+
         }
         public class Person
         {
             public int Id {  get; set; }
             public string Name { get; set; }
-
         }
         public class PersonComparer : IComparer<Person>
         {
